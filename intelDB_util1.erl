@@ -1,4 +1,4 @@
-%% @author Administrator
+%% @author Jie LIu
 %% @doc @todo Add description to intelDB_util1.
 
 
