@@ -4,7 +4,6 @@
 
 -module(intelDB_BuffManager).
 
--author('Jie-Liu').
 
 -behaviour(gen_server).
 -compile(export_all).
