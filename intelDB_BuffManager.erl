@@ -5,6 +5,8 @@
 -module(intelDB_BuffManager).
 
 
+%% add comment here for client
+
 -behaviour(gen_server).
 -compile(export_all).
 
