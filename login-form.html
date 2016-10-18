@@ -1,0 +1,114 @@
+<section class="td-fullwidth-white td-padding-top-0">
+<div class="td-container signin-container">
+    <div class="td-row td-hidden-xs">
+        <div class="td-col-md-8 td-col-md-offset-2 td-margin-bottom-10">
+            <h1 class="text-center">{{'login.Title' | translate}}</h1>
+            <p translate="login.Description"></p>
+        </div>
+    </div>
+    <div class="td-row signin desktop">
+        <div class="td-col-md-8 td-col-md-offset-2">
+            <div class="easyweb-login">
+                <h2 translate="login.EWText"></h2>
+                <input ng-show="signInWithNewCard" type="text" placeholder="{{'login.username.placeholder' | translate}}" name="username" ng-model="username">
+                <span ng-show="signInWithNewCard" class="td-icon td-icon-username"></span>
+                <div ng-show="!signInWithNewCard" class="td-select ">
+                    <select
+                            ng-model="selectedOption"
+                            ng-options="option.rememberedId for option in rememberedIdList">
+                    </select>
+                </div>
+                <br />
+                <div ng-if="signInWithNewCard" class="useSavedCard" td-ui-size="regular">
+                    <a href="" ng-click="toggleSignInNewCard(false);" class="td-link-tertiary">Use saved card</a>
+                </div>
+                <div ng-if="!signInWithNewCard" class="signInNewCard" td-ui-size="regular">
+                    <a href="" ng-click="toggleSignInNewCard(true);" class="td-link-tertiary">Sign on with a different card number</a>
+                </div>
+                <br />
+                <input type="password" ng-model="password" placeholder="{{'login.password.placeholder' | translate}}">
+                <span class="td-icon td-icon-password"></span>
+                <div class="td-checkbox-div-wrapper rememberme">
+                    <input type="checkbox" ng-model="rememberMeChk">
+                     <label>&nbsp;</label>
+                </div>
+                <div ng-click="rememberme = !rememberme" class="card">
+                    <span>{{'login.RememberMe' | translate}}</span>
+                    <span class="td-icon td-icon-downCaret" ng-class="{'spin':rememberme}"></span>
+                </div>
+                <div class="message td-background-lightest-gray" ng-class="{'open':rememberme}">
+                    <div>{{'login.RememberMe.Popup' | translate}}</div>
+                </div>
+                <button td-ui-block td-ui-primary td-ui-size="regular" ng-click="validateUser()">{{'login.EasywebBtn' | translate}}</button>
+                <div class="forgotusername">
+                    <a href="#" ng-click="$event.preventDefault();forgotPassword()" class="td-link-tertiary">{{'login.ForgotPasswordLink' | translate}}</a>
+                </div>
+            </div>
+            <div class="new-cust">
+                <h2 translate="login.N2BText"></h2>
+                <input type="text" ng-model="fname" placeholder="{{'login.N2B.Firstname.placeholder' | translate}}">
+                <input type="text" ng-model="lname" placeholder="{{'login.N2B.Lastname.placeholder' | translate}}">
+                <input type="text" ng-model="email" placeholder="{{'login.N2B.Email.placeholder' | translate}}">
+                <button td-ui-block td-ui-primary td-ui-size="regular" ng-click="moveToGettingStarted()">{{'login.N2BBtn' | translate}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="td-row signin mobile" ng-controller="tdMobileSignin">
+        <div class="td-col-xs-12">
+            <div class="option">
+                <div class="bar" ng-class="{'selected':newCustOpen}" ng-click="openNewCus()" translate="login.N2BText">
+                    <span class="td-icon td-icon-downCaret" ng-class="{'selected':newCustOpen}"></span>
+                </div>
+                <div class="content" ng-class="{'selected' : newCustOpen}">
+                    <div class="new-cust">
+                        <input type="text" ng-model="fname" placeholder="{{'login.N2B.Firstname.placeholder' | translate}}">
+                        <input type="text" ng-model="lname" placeholder="{{'login.N2B.Lastname.placeholder' | translate}}">
+                        <input type="text" ng-model="email" placeholder="{{'login.N2B.Email.placeholder' | translate}}">
+                        <button td-ui-block td-ui-primary td-ui-size="regular" ng-click="moveToGettingStarted()">{{'login.N2BBtn' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="option">
+                <div class="bar" ng-class="{'selected':easywebOpen}" ng-click="openEasyweb()" translate="login.EWText">
+                    <span class="td-icon td-icon-downCaret" ng-class="{'selected':easywebOpen}"></span>
+                </div>
+                <div class="content" ng-class="{'selected' : easywebOpen}">
+                    <div class="easyweb-login">
+                        <input ng-show="signInWithNewCard" type="text" placeholder="{{'login.username.placeholder' | translate}}" name="username" ng-model="username">
+                        <span ng-show="signInWithNewCard" class="td-icon td-icon-username"></span>
+                        <div ng-show="!signInWithNewCard" class="td-select ">
+                            <select
+                                    ng-model="selectedOption"
+                                    ng-options="option.rememberedId for option in rememberedIdList">
+                            </select>
+                        </div>
+                        <div ng-if="signInWithNewCard" class="useSavedCard" td-ui-size="regular">
+                            <a href="" ng-click="toggleSignInNewCard(false);" class="td-link-tertiary">Use saved card</a>
+                        </div>
+                        <div ng-if="!signInWithNewCard" class="signInNewCard" td-ui-size="regular">
+                            <a href="" ng-click="toggleSignInNewCard(true);" class="td-link-tertiary">Sign on with a different card number</a>
+                        </div>
+                        <input type="password" ng-model="password" placeholder="{{'login.password.placeholder' | translate}}">
+                        <span class="td-icon td-icon-password"></span>
+                        <div class="td-checkbox-div-wrapper rememberme">
+                            <input type="checkbox" ng-model="rememberMeChk">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div ng-click="rememberme = !rememberme" class="card">
+                            <span>{{'login.RememberMe' | translate}}</span>
+                            <span class="td-icon td-icon-downCaret" ng-class="{'spin':rememberme}"></span>
+                        </div>
+                        <div class="message td-background-lightest-gray" ng-class="{'open':rememberme}">
+                            <div>{{'login.RememberMe.Popup' | translate}}</div>
+                        </div>
+                        <button td-ui-block td-ui-primary td-ui-size="regular" ng-click="validateUser()">{{'login.EasywebBtn' | translate}}</button>
+                        <div class="forgotusername">
+                            <a href="#" ng-click="$event.preventDefault();forgotPassword()" class="td-link-tertiary">{{'login.ForgotPasswordLink' | translate}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
